@@ -24,6 +24,10 @@ def run():
         page_title="Pranav Hello World OpenAI",
         page_icon="👋",
     )
+    st.markdown("# Pranav's Sentiment Analysis Demo using Open AI")
+    st.write(
+    """This app shows how to do Sentiment Analysis using Open AI and Streamlit."""
+    )
 
 if __name__ == "__main__":
     run()
