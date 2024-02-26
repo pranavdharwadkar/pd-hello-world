@@ -19,6 +19,15 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
+def run():
+    st.set_page_config(
+        page_title="Pranav Hello World OpenAI",
+        page_icon="👋",
+    )
+
+if __name__ == "__main__":
+    run()
+
 
 def simple_classify(client, input_string: str, prompt_string:str) -> str:
 
@@ -30,12 +39,6 @@ def simple_classify(client, input_string: str, prompt_string:str) -> str:
   #print(completion.model_dump_json(indent=2))
   return response
 
-def run():
-    st.set_page_config(
-        page_title="Pranav Hello World OpenAI",
-        page_icon="👋",
-    )
-
 password=st.text_input("Enter OpenAI Key")
 prompt = st.text_input("Enter the prompt:")
 user_input = st.text_area("User Input")
@@ -43,12 +46,7 @@ user_input = st.text_area("User Input")
 if password:
   client = OpenAI(api_key=password)
   print(client.api_key)
-
-response = simple_classify(client,user_input, prompt)
-st.write(f"response is{response}")
-
+  response = simple_classify(client,user_input, prompt)
+  st.write(f"response is{response}")
 
 
-
-if __name__ == "__main__":
-    run()
